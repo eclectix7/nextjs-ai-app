@@ -38,3 +38,17 @@ Users never see any of this
 - Monitor costs
 - Test edges cases (off-topic questions)
 - Document what works & save for reference
+
+## Structured data
+
+See
+- src/app/api/structured-data/schema.ts
+- src/app/api/structured-data/route.ts
+- src/app/ui/structured-data/page.tsx
+
+- Allows exacting the shape of the retured data usig a schema
+- Use cases
+  - catalogs w/prices, descriptions, etc
+  - Analysis reports with data points and conclusions
+  - Task lists with priorities and due dates
+  - Quiz questions with multiple choice options
