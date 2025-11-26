@@ -25,6 +25,7 @@ export default function WebSearchToolPage() {
     <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
       {error && <div className="text-red-500 mb-4">{error.message}</div>}
       {messages.map((message) => {
+        // extract sources for this message
         const sources = message.parts.filter(
           (part) => part.type === "source-url"
         );
@@ -45,8 +46,8 @@ export default function WebSearchToolPage() {
                       {part.text}
                     </div>
                   );
-                // case "tool-web_search_preview":
-                case "tool-web_search":
+                case "tool-web_search_preview":
+                // case "tool-web_search":
                   switch (part.state) {
                     case "input-streaming":
                       return (
@@ -81,6 +82,7 @@ export default function WebSearchToolPage() {
                             </div>
                           </div>
 
+                          {/* check for citations */}
                           {message.role === "assistant" &&
                             sources.length > 0 && (
                               <div className="mb-2">
