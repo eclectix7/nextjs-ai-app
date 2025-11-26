@@ -1,5 +1,8 @@
 # Notes
 
+https://www.youtube.com/watch?v=BQmbuEClULY
+AI SDK v5 Full Course - Beginner to Advanced
+
 ## Types of models
 
 1. LLM - trained on text
@@ -52,3 +55,9 @@ See
   - Analysis reports with data points and conclusions
   - Task lists with priorities and due dates
   - Quiz questions with multiple choice options
+
+### Generate Arrays & Enums
+
+See
+- structured-array Pokemon[] generator
+- structured-enum text sentiment (enum options) analizer
