@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     });
 
     return result.toUIMessageStreamResponse({
-      sendReasoning: true,
+      sendReasoning: true,// tell it to include the reasoning info
     });
   } catch (error) {
     console.error("Error streaming chat completion:", error);

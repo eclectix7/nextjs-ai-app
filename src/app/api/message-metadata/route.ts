@@ -8,19 +8,21 @@ export async function POST(req: Request) {
     const { messages }: { messages: MyUIMessage[] } = await req.json();
 
     const result = streamText({
-      model: openai("gpt-5-nano"),
+      // model: openai("gpt-5-nano"),// adds reasoning tokens
+      model: openai("gpt-4.1-nano"),// no reasoning tokens
       messages: convertToModelMessages(messages),
     });
 
     return result.toUIMessageStreamResponse({
       messageMetadata: ({ part }) => {
+        console.log("messageMetadata/part/", part)
         if (part.type === "start") {
           return {
             createdAt: Date.now(),
           };
         }
         if (part.type === "finish") {
-          console.log(part.totalUsage);
+          console.log("messageMetadata/part.totalUsage/", part.totalUsage);
           return {
             totalTokens: part.totalUsage.totalTokens,
           };

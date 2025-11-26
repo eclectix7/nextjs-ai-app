@@ -10,7 +10,7 @@ export async function POST(req: Request) {
       text: text,
     });
 
-    return new Response(audio.uint8Array, {
+    return new Response(new Blob([audio.uint8Array], { type: audio.mediaType || "audio/mpeg" }), {
       headers: {
         "Content-Type": audio.mediaType || "audio/mpeg",
       },

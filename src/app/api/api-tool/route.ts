@@ -21,6 +21,7 @@ const tools = {
         `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}`
       );
       const data = await response.json();
+      // build the data we're interested in
       const weatherData = {
         location: {
           name: data.location.name,
