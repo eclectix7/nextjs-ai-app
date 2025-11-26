@@ -9,11 +9,27 @@ export async function POST(req: Request) {
     const result = streamText({
       model: openai("gpt-5-nano"),
       messages: [
-        {
+        // {  system prompt example
+        //   role: "system",
+        //   // content:
+        //   //   "You are a helpful coding assistant. Keep responses under 3 sentences and focus on practical examples.",
+        //   content:
+        //     "You are a friendly teach who explains concepts with simple analogies. Always relate concepts to everyday experiences.",
+        // },
+        { // few shot example, model messages (not UI messages)
           role: "system",
-          content:
-            "You are a helpful coding assistant. Keep responses under 3 sentences and focus on practical examples.",
+          content: "Convert user questions about React into code examples.",
         },
+        {
+          role: "user",
+          content: "How to toggle a boolean?",
+        },
+        {
+          // will guide the LLM to answer with code only
+          role: "assistant",
+          content: "const [isOpen, setIsOpen] = useState(false);\nconst toggle = () => setIsOpen(!isOpen);",
+        },
+
         ...convertToModelMessages(messages),
       ],
     });
