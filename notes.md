@@ -61,3 +61,12 @@ See
 See
 - structured-array Pokemon[] generator
 - structured-enum text sentiment (enum options) analizer
+
+## Muti-Modal support
+
+The AI SDK text/chat processing also supports image processing, so we extended the UI to manage image inputs & outputs with text.
+
+See
+- src/app/ui/multi-modal-chat/page.tsx
+
+## Add PDF support to Multi-Modal processing
